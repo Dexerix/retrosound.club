@@ -1,0 +1,70 @@
+$color: #5974ff;
+
+:root {
+    /* Misc */
+    --container-width: 1400px;
+    --border-radius: .25rem;
+    --border-radius-md: .5rem;
+    --border-radius-lg: .75rem;
+    --spacing: 1rem;      /* Used for .has-m and .has-p classes */
+    --spacing-md: 1.5rem; /* Used for .has-m-md and .has-p-md classes */
+    --spacing-lg: 2rem;   /* Used for .has-m-lg and .has-p-lg classes */
+
+    /* Grid Gaps */
+    --col-gap: 1rem;
+    --col-gap-md: 1.5rem;
+    --col-gap-lg: 2rem;
+
+    --row-gap: 1rem;
+    --row-gap-md: 1.5rem;
+    --row-gap-lg: 2rem;
+}
+
+* {
+    text-decoration: none;
+}
+
+a { 
+    &:visited{
+        color: $color;
+    }
+    &:hover{
+        color: tomato;
+    }
+
+    
+}
+
+footer{
+    h5 {
+        margin-top: 0%;
+        margin-bottom: 5%;
+    }
+    img{
+        width: auto;
+        height: 50px;
+        margin-right: 5px;
+    }
+    .newsletter-form {
+        display: flex;
+        margin-bottom: 0.5rem;
+        
+        input[type="email"] {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        
+        button {
+            padding: 0.5rem 1rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+        }
+    }
+}
+
+input[type="submit"]{
+    background-color: $color;
+    border: none;
+}
