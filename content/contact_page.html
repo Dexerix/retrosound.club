@@ -31,6 +31,52 @@
             <textarea name="message" id="message" rows="16" required></textarea>
             <input type="submit" value="Send">
         </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.querySelector('form');
+                const emailInput = document.getElementById('email');
+                const phoneInput = document.getElementById('phone');
+
+                // Email regex pattern - accepts standard email format
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                // Phone regex pattern - accepts international formats with optional spaces/dashes
+                const phonePattern = /^(\+\d{1,3}[- ]?)?\d{3,}[- ]?\d{3,}[- ]?\d{0,4}$/;
+
+                // Add custom validation messages
+                emailInput.addEventListener('input', function() {
+                    if (emailInput.value && !emailPattern.test(emailInput.value)) {
+                        emailInput.setCustomValidity('Please enter a valid email address');
+                    } else {
+                        emailInput.setCustomValidity('');
+                    }
+                });
+
+                phoneInput.addEventListener('input', function() {
+                    if (phoneInput.value && !phonePattern.test(phoneInput.value)) {
+                        phoneInput.setCustomValidity('Please enter a valid phone number');
+                    } else {
+                        phoneInput.setCustomValidity('');
+                    }
+                });
+
+                form.addEventListener('submit', function(event) {
+                    // Validate email
+                    if (emailInput.value && !emailPattern.test(emailInput.value)) {
+                        event.preventDefault();
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+
+                    // Validate phone (only if provided since it might be optional)
+                    if (phoneInput.value && !phonePattern.test(phoneInput.value)) {
+                        event.preventDefault();
+                        alert('Please enter a valid phone number');
+                        return;
+                    }
+                });
+            });
+        </script>
     </main>
 
     <footer>
